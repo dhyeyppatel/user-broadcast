@@ -55,5 +55,6 @@ for (let channel_id in channels) {
 if (buttons.length === 0) {
   Bot.sendMessage("You do not have access to any channels.");
 } else {
+  buttons.push([{ title: "⏸ Pause All", command: "/stopAll" }]);
   Bot.sendInlineKeyboard(buttons, "📺 **Available Channels**\nSelect a channel to start or stop auto-forwarding messages to your inbox.");
 }
