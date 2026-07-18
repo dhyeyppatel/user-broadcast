@@ -1,84 +1,65 @@
-# SoSPrimeBot - chat bot
-It is repository for chat bot: [@SoSPrimeBot](https://t.me/SoSPrimeBot)
+# CommonThread Premium Auto-Forwarding Bot
 
-## What it is?
-This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.
+A powerful, multi-channel Telegram auto-forwarding bot built on [Bots.Business](https://bots.business). This bot is designed to drip-feed historical messages from private/public Telegram channels directly to individual users at a configurable pace. It comes fully equipped with automated referral systems, single-use invite links, user management, and an interactive Owner Dashboard.
 
-[Bots.Business](https://bots.business) - it is probably the first CBPaaS - Chat Bot Platform as a Service.
+❤️ *Powered by @commonthread*
 
-A CBPaaS is a cloud-based platform that enables developers to create chatbots without needing to build backend infrastructure.
+---
 
-## Create your own bot for Telegram from this Git repo
+## 🌟 Key Features
 
-How to create bot?
-1. Create bot with [@BotFather](https://telegram.me/BotFather) and take Secret Token
-2. Create bot in App and add Secret Token
-3. Add Public Key from App as [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) with read access (and write access for bot exporting if you need it)
-4. Do import for this git repo
+*   **Multi-Channel Drip-Feeds**: Users can subscribe to multiple channels at once. The bot will automatically forward messages one-by-one from a starting ID, pausing/resuming on command.
+*   **Hassle-Free Channel Setup**: No more hunting for Channel IDs or Message IDs. Just forward a message from your channel to the bot, and it will register automatically!
+*   **Automated Referral System**: Lock premium channels behind a referral wall. Set a required invite count (e.g., 5 invites). Users can generate their unique referral link via the `/profile` menu, and the bot will track invites and automatically unlock the channel for them when they reach the goal.
+*   **Single-Use Invite Links**: Want to grant access to a user manually without asking for their ID? Just generate a 1-Time Invite Link from the dashboard. Once the user clicks it, they get access and the link deletes itself.
+*   **Global Broadcast**: Instantly send an announcement (text, image, video, or forwarded message) to every single user who has access to your bot.
+*   **Interactive Owner Dashboard**: A beautiful inline keyboard menu for owners to manage settings and channels without typing complex commands.
+*   **Master Users**: Add co-admins or VIPs as "Master Users". They bypass all restrictions and can view all channels.
 
-Now you can talk with yours new Telegram Bot
+---
 
-See [more](https://help.bots.business/getting-started)
+## 🚀 Initial Setup
 
-## Commands - in commands folder
-File name - it is command name (Bot it can be rewritten in command description)
+1.  **Import to Bots.Business**: Import this repository into a new Bots.Business project.
+2.  **Run Setup**: Send `/setup` to the bot in Telegram. This will register your Telegram ID as the **Owner/Admin** and set up the interactive Telegram Menu button.
+3.  **Ensure Bot is Admin in Channels**: Your bot **MUST** be an administrator in the channels you want to forward messages from (it needs access to read messages).
 
-Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
+---
 
-### Command description
-It is file header:
+## 📚 Command Documentation
 
-    /*CMD
-      command: /test
-      help: this is help for ccommand
-      need_reply: [ true or false here ]
-      auto_retry_time: [ time in sec ]
-      answer: it is example answer for /test command
-      keyboard: button1, button2
-      aliases: /test2, /test3
-    CMD*/
+### 👤 User Commands (Available to everyone)
+*   **/start** or **/menu** — Opens the User Menu. Displays an interactive list of all unlocked channels. Clicking a channel toggles the drip-feed on or off.
+*   **/profile** — Opens the User Profile. Shows locked channels, referral progress, and provides buttons to generate unique referral links.
+*   **/stop**, **/pause**, or **/stopAll** — Instantly pauses all active auto-forwarding loops for the user.
 
-See [more](https://help.bots.business/commands)
+### 👑 Owner Dashboard
+*   **/admin** — Opens the **Owner Dashboard**. From here you can view stats and manage channels and configuration.
+*   **/setup** — Sets you as the Admin. (Only the bot creator should run this).
 
-### Command body
-It is command code in JavaScript.
-Use Bot Java Script for logic in command.
+### 📺 Channel Management (Admin Only)
+*   **Add a Channel**: Simply **forward a message** from your channel to the bot. It will automatically detect the Channel ID and Starting Message ID!
+*   **/removechannel [channel_id]** — Deletes a channel from the bot.
+*   **/setReferrals [channel_id] [required_count]** — Sets the number of referrals a user needs to unlock a specific channel. (Set to `0` to disable).
 
-For example:
-> Bot.sendMessage(2+2);
+### 👥 User Management (Admin Only)
+*   **1-Time Links**: Use the `/admin` dashboard -> *Manage Channels* -> click `🔗 1-Time Link` to generate a single-use invite link for a specific channel.
+*   **/addmaster [user_id]** — Grants a user **Master Access**. They will bypass all restrictions and can view all current and future channels.
+*   **/removemaster [user_id]** — Revokes Master Access from a user.
+*   *(Manual Add)* **/add [user_id] [channel_id]** — Grants a specific user access to a specific channel.
+*   *(Manual Remove)* **/remove [user_id] [channel_id]** — Revokes a user's access from a specific channel.
 
-See [more](https://help.bots.business/scenarios-and-bjs)
+### ⚙️ System & Config (Admin Only)
+*   **/broadcast** — Prompts you to send a message (text, media, forward) and then blasts it to all users of the bot.
+*   **/set interval [seconds]** — Sets the delay between forwarded messages (e.g., `/set interval 5` for 5 seconds).
+*   **/set timeout [seconds]** — Sets the auto-delete timeout. The bot will automatically delete the forwarded message from the user's inbox after this many seconds.
 
+---
 
-## Libraries - in libs folder
-You can store common code in the libs folder. File name - it is library name.
-
-For example code in myLib.js:
-
-    function hello(){ Bot.sendMessage("Hello from lib!") }
-    function goodbye(name){ Bot.sendMessage("Goodbye, " + name) }
-
-    publish({
-      sayHello: hello,
-      sayGoodbyeTo: goodbye
-    })
-
-then you can run in any bot's command:
-
-    Libs.myLib.hello()
-    Libs.myLib.sayGoodbyeTo("Alice")
-
-See [more](https://help.bots.business/git/library)
-
-## Other bots example
-See other bots examples in the [github](https://github.com/bots-business?utf8=✓&tab=repositories&q=&type=public&language=javascript) or in the [Bot Store](https://bots.business/)
-
-
-## Other help
-[Help.bots.business](https://help.bots.business)
-
-## API
-See [API](https://api.bots.business/docs#/docs/summary)
-
-
-![](https://bots.business/images/web-logo.png)
+## 📁 File Structure
+The bot commands are fully categorized for easy navigation in the Bots.Business editor:
+*   `Channels/` - Handlers for adding/removing channels, referral config, and 1-time links.
+*   `System/` - Core admin setup, the interactive dashboard, broadcast, and the catch-all (`*`) forward listener.
+*   `Users/` - Manual addition/removal of users and masters.
+*   `User/` - End-user facing menus like `/menu` and `/profile`.
+*   `Background/` - The core auto-forwarding engine, looping logic, and auto-deletion scripts.
