@@ -31,8 +31,6 @@ let p = params ? params.split(" ") : [];
 if (p.length < 2) {
   return Bot.sendMessage(
     "Usage:\n" +
-    "/set channel <id>\n" +
-    "/set start <msg_id>\n" +
     "/set interval <seconds>\n" +
     "/set timeout <seconds>"
   );
@@ -45,16 +43,12 @@ if (isNaN(val)) {
   return Bot.sendMessage("❌ Value must be a number");
 }
 
-if (prop === "channel") {
-  Bot.setProperty("storage_channel", val, "integer");
-} else if (prop === "start") {
-  Bot.setProperty("current_message_id", val, "integer");
-} else if (prop === "interval") {
+if (prop === "interval") {
   Bot.setProperty("interval", val, "integer");
 } else if (prop === "timeout") {
   Bot.setProperty("auto_delete_time", val, "integer");
 } else {
-  return Bot.sendMessage("❌ Invalid property. Use channel, start, interval, or timeout.");
+  return Bot.sendMessage("❌ Invalid property. Use interval or timeout.");
 }
 
 Bot.sendMessage("✅ Set " + prop + " to " + val);

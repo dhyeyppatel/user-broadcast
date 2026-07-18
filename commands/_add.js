@@ -30,33 +30,35 @@ if (user.telegramid.toString() !== admin_id.toString()) {
   });
 }
 
-let id = params;
+let p = params ? params.split(" ") : [];
 
-if (!id) {
+if (p.length < 2) {
   return Api.sendMessage({
-    text: "Usage:\n/add user_id"
+    text: "Usage:\n/add <user_id> <channel_id>"
   });
 }
 
-id = parseInt(id);
+let id = parseInt(p[0]);
+let channel_id = p[1];
 
-let premium = Bot.getProperty("premium_users", []);
+if (isNaN(id)) {
+  return Api.sendMessage({ text: "❌ user_id must be a number" });
+}
+
+let channels = Bot.getProperty("channels", {});
+if (!channels[channel_id]) {
+  return Api.sendMessage({ text: "❌ Channel " + channel_id + " does not exist." });
+}
+
+let propName = "premium_" + channel_id;
+let premium = Bot.getProperty(propName, []);
 
 if (!premium.includes(id)) {
-
   premium.push(id);
-
-  Bot.setProperty(
-    "premium_users",
-    premium,
-    "json"
-  );
+  Bot.setProperty(propName, premium, "json");
 }
 
 Api.sendMessage({
-  text:
-    "✅ Added to premium:\n<code>" +
-    id +
-    "</code>",
+  text: "✅ Added user <code>" + id + "</code> to channel <b>" + channels[channel_id].name + "</b>",
   parse_mode: "HTML"
 });

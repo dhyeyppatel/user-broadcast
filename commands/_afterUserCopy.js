@@ -1,10 +1,13 @@
 /*CMD
-  command: /afterCopy
+  command: /afterUserCopy
   help: 
   need_reply: false
   auto_retry_time: 
   folder: 
-  answer: 
+
+  <<ANSWER
+
+  ANSWER
 
   <<KEYBOARD
 
@@ -15,24 +18,22 @@ CMD*/
 
 if (!options || !options.result) return;
 
-let delete_after = parseInt(Bot.getProperty("auto_delete_time"));
+let channel_id = params;
+if (!channel_id) return;
+
+let delete_after = parseInt(Bot.getProperty("auto_delete_time", 6));
 
 // Reset missing count on success
-Bot.setProperty("missing_count", 0, "integer");
+User.setProperty("missing_" + channel_id, 0, "integer");
 
-// result contains sent message data
 let sent_message_id = options.result.message_id;
-
-let chat_id = params;
 
 // schedule delete
 Bot.run({
   command: "/deleteMessage",
-
   options: {
-    chat_id: chat_id,
+    chat_id: user.telegramid,
     message_id: sent_message_id
   },
-
   run_after: delete_after
 });

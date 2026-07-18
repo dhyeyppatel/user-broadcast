@@ -26,22 +26,28 @@ if (user.telegramid.toString() !== admin_id.toString()) {
   return Bot.sendMessage("❌ Not allowed");
 }
 
-let id = params;
+let p = params ? params.split(" ") : [];
 
-if (!id) {
-  return Bot.sendMessage("Usage:\n/remove <user_id>");
+if (p.length < 2) {
+  return Bot.sendMessage("Usage:\n/remove <user_id> <channel_id>");
 }
 
-id = parseInt(id);
+let id = parseInt(p[0]);
+let channel_id = p[1];
 
-let premium = Bot.getProperty("premium_users", []);
+if (isNaN(id)) {
+  return Bot.sendMessage("❌ user_id must be a number");
+}
+
+let propName = "premium_" + channel_id;
+let premium = Bot.getProperty(propName, []);
 
 let index = premium.indexOf(id);
 
 if (index > -1) {
   premium.splice(index, 1);
-  Bot.setProperty("premium_users", premium, "json");
-  Bot.sendMessage("✅ Removed user " + id + " from premium.");
+  Bot.setProperty(propName, premium, "json");
+  Bot.sendMessage("✅ Removed user " + id + " from channel " + channel_id);
 } else {
-  Bot.sendMessage("⚠️ User " + id + " is not in the premium list.");
+  Bot.sendMessage("⚠️ User " + id + " is not in channel " + channel_id);
 }

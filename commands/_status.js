@@ -21,28 +21,26 @@ var admin_id = Bot.getProperty("admin_id");
 if (!admin_id) {
   return Bot.sendMessage("❌ Run /setup first");
 }
-
 if (user.telegramid.toString() !== admin_id.toString()) {
   return Bot.sendMessage("❌ Not allowed");
 }
 
-let isRunning = Bot.getProperty("forward_loop") ? "✅ Running" : "⏹ Stopped";
-let msgId = Bot.getProperty("current_message_id", "Not set");
-let channel = Bot.getProperty("storage_channel", "Not set");
-let interval = Bot.getProperty("interval", "Not set");
-let timeout = Bot.getProperty("auto_delete_time", "Not set");
-let missingCount = Bot.getProperty("missing_count", 0);
+let channels = Bot.getProperty("channels", {});
+let masters = Bot.getProperty("master_users", []);
 
-let premium = Bot.getProperty("premium_users", []);
+let text = "📊 **Bot Status**\n\n";
+text += "👑 Master Users: " + masters.length + "\n\n";
+text += "📺 **Channels:**\n";
 
-let text = "📊 **Bot Status**\n\n" +
-  "Loop Status: " + isRunning + "\n" +
-  "Current Msg ID: " + msgId + "\n" +
-  "Missing Count: " + missingCount + "\n" +
-  "Total Premium Users: " + premium.length + "\n\n" +
-  "⚙️ **Configuration**\n" +
-  "Storage Channel: " + channel + "\n" +
-  "Interval: " + interval + "s\n" +
-  "Auto-Delete Timeout: " + timeout + "s";
+for (let id in channels) {
+  let premium = Bot.getProperty("premium_" + id, []);
+  text += "- " + channels[id].name + " (" + id + ")\n";
+  text += "  Start Msg ID: " + channels[id].start_id + "\n";
+  text += "  Premium Users: " + premium.length + "\n";
+}
+
+if (Object.keys(channels).length === 0) {
+  text += "No channels configured.";
+}
 
 Bot.sendMessage(text);

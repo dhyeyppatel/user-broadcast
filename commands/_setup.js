@@ -44,11 +44,20 @@ Bot.setProperty(
   "string"
 );
 
+Api.setMyCommands({
+  commands: [
+    { command: "menu", description: "Show available channels" },
+    { command: "status", description: "Show admin status" },
+    { command: "setup", description: "Setup Admin" }
+  ]
+});
+
 Api.sendMessage({
   text:
     "✅ Setup completed\n\n" +
     "👑 Admin ID:\n<code>" +
     user.telegramid +
-    "</code>",
+    "</code>\n\n" +
+    "Menu commands configured.",
   parse_mode: "HTML"
 });
