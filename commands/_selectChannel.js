@@ -26,6 +26,10 @@ if (!channels[channel_id]) {
 
 let master_users = Bot.getProperty("master_users", []);
 let isMaster = master_users.includes(user.telegramid);
+let admin_id = Bot.getProperty("admin_id");
+if (admin_id && user.telegramid.toString() === admin_id.toString()) {
+  isMaster = true;
+}
 
 let hasAccess = false;
 if (isMaster) {

@@ -48,7 +48,15 @@ Api.setMyCommands({
   commands: [
     { command: "menu", description: "Show available channels" },
     { command: "status", description: "Show admin status" },
-    { command: "setup", description: "Setup Admin" }
+    { command: "setup", description: "Setup Admin" },
+
+    // Admin Commands
+    { command: "addchannel", description: "Add a channel" },
+    { command: "removechannel", description: "Remove a channel" },
+    { command: "add", description: "Add an admin" },
+    { command: "remove", description: "Remove an admin" },
+    { command: "addmaster", description: "Add a master admin" },
+    { command: "removemaster", description: "Remove a master admin" }
   ]
 });
 
