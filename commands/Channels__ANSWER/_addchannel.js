@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: Channels<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -44,5 +40,3 @@ channels[channel_id] = {
 
 Bot.setProperty("channels", channels, "json");
 Bot.sendMessage("✅ Channel added: " + name + " (" + channel_id + ") starting at msg " + start_id);
-
-

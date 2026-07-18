@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: User<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: /stop, /pause
   group: 
 CMD*/
@@ -30,4 +26,3 @@ if (stopped > 0) {
 } else {
   Bot.sendMessage("⚠️ You don't have any active loops running right now.");
 }
-

@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: Background<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -70,4 +66,3 @@ if (isLooping) {
     run_after: interval
   });
 }
-

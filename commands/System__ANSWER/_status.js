@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: System<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -42,5 +38,3 @@ if (Object.keys(channels).length === 0) {
 }
 
 Bot.sendMessage(text);
-
-

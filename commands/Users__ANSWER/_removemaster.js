@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: Users<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -40,5 +36,3 @@ if (index > -1) {
 } else {
   Bot.sendMessage("⚠️ User is not a master user.");
 }
-
-

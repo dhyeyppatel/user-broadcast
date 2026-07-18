@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: Users<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -60,5 +56,3 @@ Api.sendMessage({
   text: "✅ Added user <code>" + id + "</code> to channel <b>" + channels[channel_id].name + "</b>",
   parse_mode: "HTML"
 });
-
-

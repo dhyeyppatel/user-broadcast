@@ -3,11 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: Backgroundanswer: 
-
-  <<KEYBOARD
-
-  KEYBOARD
+  folder: Backgroundanswer:
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -18,4 +16,3 @@ Api.deleteMessage({
   chat_id: options.chat_id,
   message_id: options.message_id
 });
-

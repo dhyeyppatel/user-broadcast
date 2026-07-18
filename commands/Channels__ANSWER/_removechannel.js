@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: Channels<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -37,5 +33,3 @@ if (channels[channel_id]) {
 } else {
   Bot.sendMessage("⚠️ Channel not found.");
 }
-
-

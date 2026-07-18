@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: System<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -68,4 +64,3 @@ Api.sendMessage({
     "Menu commands configured.",
   parse_mode: "HTML"
 });
-

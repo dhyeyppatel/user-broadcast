@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: System<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -50,5 +46,3 @@ if (prop === "interval") {
 }
 
 Bot.sendMessage("✅ Set " + prop + " to " + val);
-
-

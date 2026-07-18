@@ -4,12 +4,8 @@
   need_reply: false
   auto_retry_time: 
   folder: Channels<<ANSWER
-
-  ANSWER
-
-  <<KEYBOARD
-
-  KEYBOARD
+  answer: 
+  keyboard: 
   aliases: 
   group: 
 CMD*/
@@ -41,5 +37,3 @@ let buttons = [
 ];
 
 Bot.sendInlineKeyboard(buttons, text);
-
-
