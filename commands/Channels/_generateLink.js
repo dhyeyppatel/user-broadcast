@@ -29,16 +29,15 @@ if (!channels[channel_id]) {
 
 // Generate random 6-character alphanumeric token
 let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-let tokenStr = '';
+let token = '';
 for (let i = 0; i < 6; i++) {
-  tokenStr += chars.charAt(Math.floor(Math.random() * chars.length));
+  token += chars.charAt(Math.floor(Math.random() * chars.length));
 }
-let token = "invite_" + tokenStr;
 
 Bot.setProperty(token, channel_id, "string");
 
 let botName = bot.name; // In BJS bot.name gets the bot username
 let link = "https://t.me/" + botName + "?start=" + token;
 
-Bot.sendMessage("🔗 **Single-Use Invite Link Generated!**\n\nChannel: " + channels[channel_id].name + "\n\nSend this link to the user you want to grant access to:\n`" + link + "`\n\n*(This link can only be used once!)*");
+Bot.sendMessage("🔗 **Single-Use Invite Link Generated!**\n\nChannel: " + channels[channel_id].name + "\n\nSend this link to the user you want to grant access to:\n`" + link + "`\n\nAlternatively, they can just send `/start " + token + "` to the bot.\n\n*(This code can only be used once!)*");
 
