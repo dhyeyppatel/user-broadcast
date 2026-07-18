@@ -1,11 +1,9 @@
 /*CMD
-  command: /removemaster
+  command: /addmaster
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Admin/Users<<ANSWER
 
   ANSWER
 
@@ -27,18 +25,17 @@ if (user.telegramid.toString() !== admin_id.toString()) {
 
 let id = params;
 if (!id) {
-  return Bot.sendMessage("Usage:\n/removemaster [user_id]");
+  return Bot.sendMessage("Usage:\n/addmaster [user_id]");
 }
 
 id = parseInt(id);
 
 let masters = Bot.getProperty("master_users", []);
 
-let index = masters.indexOf(id);
-if (index > -1) {
-  masters.splice(index, 1);
+if (!masters.includes(id)) {
+  masters.push(id);
   Bot.setProperty("master_users", masters, "json");
-  Bot.sendMessage("✅ Removed master user: " + id);
-} else {
-  Bot.sendMessage("⚠️ User is not a master user.");
 }
+
+Bot.sendMessage("✅ Added master user: " + id);
+

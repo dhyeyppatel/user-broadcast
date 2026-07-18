@@ -3,8 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-  answer: 
+  folder: Backgroundanswer: 
 
   <<KEYBOARD
 
@@ -19,3 +18,4 @@ Api.deleteMessage({
   chat_id: options.chat_id,
   message_id: options.message_id
 });
+

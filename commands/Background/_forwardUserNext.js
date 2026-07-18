@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Background<<ANSWER
 
   ANSWER
 
@@ -72,3 +70,4 @@ Bot.run({
   command: "/forwardUserNext " + channel_id,
   run_after: interval
 });
+

@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Admin/Users<<ANSWER
 
   ANSWER
 
@@ -51,3 +49,4 @@ if (index > -1) {
 } else {
   Bot.sendMessage("⚠️ User " + id + " is not in channel " + channel_id);
 }
+

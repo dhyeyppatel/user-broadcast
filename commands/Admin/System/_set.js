@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Admin/System<<ANSWER
 
   ANSWER
 
@@ -52,3 +50,4 @@ if (prop === "interval") {
 }
 
 Bot.sendMessage("✅ Set " + prop + " to " + val);
+

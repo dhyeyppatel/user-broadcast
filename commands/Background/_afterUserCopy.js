@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Background<<ANSWER
 
   ANSWER
 
@@ -37,3 +35,4 @@ Bot.run({
   },
   run_after: delete_after
 });
+

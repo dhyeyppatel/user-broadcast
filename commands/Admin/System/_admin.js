@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Admin/System<<ANSWER
 
   ANSWER
 
@@ -46,3 +44,4 @@ let buttons = [
 ];
 
 Bot.sendInlineKeyboard(buttons, text);
+

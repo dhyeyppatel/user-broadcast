@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Admin/Channels<<ANSWER
 
   ANSWER
 
@@ -46,3 +44,4 @@ channels[channel_id] = {
 
 Bot.setProperty("channels", channels, "json");
 Bot.sendMessage("✅ Channel added: " + name + " (" + channel_id + ") starting at msg " + start_id);
+

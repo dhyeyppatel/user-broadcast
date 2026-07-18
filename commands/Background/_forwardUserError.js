@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Background<<ANSWER
 
   ANSWER
 
@@ -42,3 +40,4 @@ if (errDesc.includes("message to copy not found") || errDesc.includes("message n
 } else if (errDesc.includes("bot was blocked by the user") || errDesc.includes("user is deactivated")) {
   User.setProperty("loop_" + channel_id, false, "boolean");
 }
+

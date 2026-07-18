@@ -3,9 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: 
-
-  <<ANSWER
+  folder: Admin/Channels<<ANSWER
 
   ANSWER
 
@@ -39,3 +37,4 @@ if (channels[channel_id]) {
 } else {
   Bot.sendMessage("⚠️ Channel not found.");
 }
+
