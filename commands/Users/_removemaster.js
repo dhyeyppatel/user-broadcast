@@ -3,7 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: Admin/Users<<ANSWER
+  folder: Users<<ANSWER
 
   ANSWER
 
@@ -40,4 +40,5 @@ if (index > -1) {
 } else {
   Bot.sendMessage("⚠️ User is not a master user.");
 }
+
 

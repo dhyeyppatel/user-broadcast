@@ -3,7 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: Admin/System<<ANSWER
+  folder: System<<ANSWER
 
   ANSWER
 
@@ -42,4 +42,5 @@ if (Object.keys(channels).length === 0) {
 }
 
 Bot.sendMessage(text);
+
 
