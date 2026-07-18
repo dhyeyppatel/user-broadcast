@@ -27,7 +27,7 @@ if (user.telegramid.toString() !== admin_id.toString()) {
 
 let id = params;
 if (!id) {
-  return Bot.sendMessage("Usage:\n/addmaster <user_id>");
+  return Bot.sendMessage("Usage:\n/addmaster [user_id]");
 }
 
 id = parseInt(id);

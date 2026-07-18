@@ -27,7 +27,7 @@ if (user.telegramid.toString() !== admin_id.toString()) {
 
 let channel_id = params;
 if (!channel_id) {
-  return Bot.sendMessage("Usage:\n/removechannel <channel_id>");
+  return Bot.sendMessage("Usage:\n/removechannel [channel_id]");
 }
 
 let channels = Bot.getProperty("channels", {});

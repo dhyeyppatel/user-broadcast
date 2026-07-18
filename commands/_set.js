@@ -31,8 +31,8 @@ let p = params ? params.split(" ") : [];
 if (p.length < 2) {
   return Bot.sendMessage(
     "Usage:\n" +
-    "/set interval <seconds>\n" +
-    "/set timeout <seconds>"
+    "/set interval [seconds]\n" +
+    "/set timeout [seconds]"
   );
 }
 

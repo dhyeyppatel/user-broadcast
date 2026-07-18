@@ -29,7 +29,7 @@ if (user.telegramid.toString() !== admin_id.toString()) {
 let p = params ? params.split(" ") : [];
 
 if (p.length < 2) {
-  return Bot.sendMessage("Usage:\n/remove <user_id> <channel_id>");
+  return Bot.sendMessage("Usage:\n/remove [user_id] [channel_id]");
 }
 
 let id = parseInt(p[0]);

@@ -27,7 +27,7 @@ if (user.telegramid.toString() !== admin_id.toString()) {
 
 let p = params ? params.split(" ") : [];
 if (p.length < 3) {
-  return Bot.sendMessage("Usage:\n/addchannel <channel_id> <start_msg_id> <Name of channel>");
+  return Bot.sendMessage("Usage:\n/addchannel [channel_id] [start_msg_id] [Name of channel]");
 }
 
 let channel_id = p[0];

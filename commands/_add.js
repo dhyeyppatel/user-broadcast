@@ -34,7 +34,7 @@ let p = params ? params.split(" ") : [];
 
 if (p.length < 2) {
   return Api.sendMessage({
-    text: "Usage:\n/add <user_id> <channel_id>"
+    text: "Usage:\n/add [user_id] [channel_id]"
   });
 }
 
