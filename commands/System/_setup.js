@@ -3,7 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: System<<ANSWER
+  folder: System
+
+  <<ANSWER
 
   ANSWER
 
@@ -69,4 +71,5 @@ Api.sendMessage({
     "Menu commands configured.",
   parse_mode: "HTML"
 });
+
 

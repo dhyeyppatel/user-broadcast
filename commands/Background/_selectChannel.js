@@ -3,7 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: Background<<ANSWER
+  folder: Background
+
+  <<ANSWER
 
   ANSWER
 
@@ -70,4 +72,5 @@ if (isLooping) {
     run_after: interval
   });
 }
+
 

@@ -41,3 +41,4 @@ if (request.forward_from_chat && request.forward_from_chat.type === "channel") {
     return;
   }
 }
+

@@ -3,7 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: Users<<ANSWER
+  folder: Users
+
+  <<ANSWER
 
   ANSWER
 
@@ -60,5 +62,6 @@ Api.sendMessage({
   text: "✅ Added user <code>" + id + "</code> to channel <b>" + channels[channel_id].name + "</b>",
   parse_mode: "HTML"
 });
+
 
 

@@ -3,7 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: Users<<ANSWER
+  folder: Users
+
+  <<ANSWER
 
   ANSWER
 
@@ -38,5 +40,6 @@ if (!masters.includes(id)) {
 }
 
 Bot.sendMessage("✅ Added master user: " + id);
+
 
 

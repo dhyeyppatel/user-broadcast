@@ -71,3 +71,4 @@ for (let i = 0; i < userArray.length; i++) {
 }
 
 Bot.sendMessage("✅ Successfully broadcasted message to " + count + " users.");
+

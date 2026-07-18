@@ -41,3 +41,4 @@ let botName = bot.name; // In BJS bot.name gets the bot username
 let link = "https://t.me/" + botName + "?start=" + token;
 
 Bot.sendMessage("🔗 **Single-Use Invite Link Generated!**\n\nChannel: " + channels[channel_id].name + "\n\nSend this link to the user you want to grant access to:\n`" + link + "`\n\n*(This link can only be used once!)*");
+

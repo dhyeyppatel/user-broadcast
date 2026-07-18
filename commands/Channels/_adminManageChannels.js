@@ -3,7 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: Channels<<ANSWER
+  folder: Channels
+
+  <<ANSWER
 
   ANSWER
 
@@ -42,5 +44,6 @@ text += "*To Remove a Channel, send:*\n`/removechannel [channel_id]`\n\n";
 buttons.push([{ title: "🔙 Back to Dashboard", command: "/admin" }]);
 
 Bot.sendInlineKeyboard(buttons, text);
+
 
 

@@ -43,3 +43,4 @@ if (req > 0) {
 } else {
   Bot.sendMessage("✅ Referral system disabled for **" + channels[channel_id].name + "**.");
 }
+

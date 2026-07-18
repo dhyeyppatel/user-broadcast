@@ -3,7 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: User<<ANSWER
+  folder: User
+
+  <<ANSWER
 
   ANSWER
 
@@ -108,4 +110,5 @@ if (buttons.length === 0) {
   buttons.push([{ title: "⏸ Pause All", command: "/stopAll" }]);
   Bot.sendInlineKeyboard(buttons, "📺 **Available Channels**\nSelect a channel to start or stop auto-forwarding messages to your inbox.\n\n_Powered by @commonthread_ ❤️");
 }
+
 

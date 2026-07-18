@@ -3,7 +3,9 @@
   help: 
   need_reply: false
   auto_retry_time: 
-  folder: User<<ANSWER
+  folder: User
+
+  <<ANSWER
 
   ANSWER
 
@@ -30,4 +32,5 @@ if (stopped > 0) {
 } else {
   Bot.sendMessage("⚠️ You don't have any active loops running right now.");
 }
+
 
