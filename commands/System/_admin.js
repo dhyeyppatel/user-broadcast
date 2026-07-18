@@ -35,7 +35,7 @@ text += "• Total Channels: " + Object.keys(channels).length + "\n";
 text += "• Master Users: " + masters.length + "\n";
 text += "• Forward Interval: " + interval + "s\n";
 text += "• Auto-Delete Timeout: " + timeout + "s\n\n";
-text += "Select an option below:";
+text += "Select an option below:\n\n_Powered by @commonthread_ ❤️";
 
 let buttons = [
   [{ title: "📺 Manage Channels", command: "/adminManageChannels" }],

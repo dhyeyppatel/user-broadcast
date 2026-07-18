@@ -21,6 +21,8 @@ let channels = Bot.getProperty("channels", {});
 
 let text = "📺 **Manage Channels**\n\n";
 
+let buttons = [];
+
 if (Object.keys(channels).length === 0) {
   text += "No channels are currently configured.\n";
 } else {
@@ -29,16 +31,15 @@ if (Object.keys(channels).length === 0) {
     text += "🔹 **" + channels[id].name + "**\n";
     text += "ID: `" + id + "`\n";
     text += "Start Msg: " + channels[id].start_id + " | Users: " + premium.length + "\n\n";
+    
+    buttons.push([{ title: "🔗 1-Time Link: " + channels[id].name, command: "/generateLink " + id }]);
   }
 }
 
-text += "\n*To Add a Channel, send:*\n`/addchannel [channel_id] [start_msg_id] [Name]`\n\n";
+text += "\n*To Add a Channel, just forward a message from it to this bot!*\n\n";
 text += "*To Remove a Channel, send:*\n`/removechannel [channel_id]`\n\n";
-text += "*To Add a User to a Channel, send:*\n`/add [user_id] [channel_id]`";
 
-let buttons = [
-  [{ title: "🔙 Back to Dashboard", command: "/admin" }]
-];
+buttons.push([{ title: "🔙 Back to Dashboard", command: "/admin" }]);
 
 Bot.sendInlineKeyboard(buttons, text);
 
