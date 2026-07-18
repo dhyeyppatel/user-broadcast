@@ -45,6 +45,7 @@ Bot.setProperty(
 Api.setMyCommands({
   commands: [
     { command: "menu", description: "Show available channels" },
+    { command: "profile", description: "Your Profile & Referrals" },
     { command: "status", description: "Show admin status" },
     { command: "admin", description: "Owner Dashboard" },
     { command: "setup", description: "Setup Admin" },
