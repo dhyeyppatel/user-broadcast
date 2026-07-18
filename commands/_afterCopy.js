@@ -17,6 +17,9 @@ if (!options || !options.result) return;
 
 let delete_after = parseInt(Bot.getProperty("auto_delete_time"));
 
+// Reset missing count on success
+Bot.setProperty("missing_count", 0, "integer");
+
 // result contains sent message data
 let sent_message_id = options.result.message_id;
 

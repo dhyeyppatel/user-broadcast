@@ -20,7 +20,13 @@ CMD*/
 Stops forwarding loop
 */
 
-if (user.telegramid != 1123135015) {
+var admin_id = Bot.getProperty("admin_id");
+
+if (!admin_id) {
+  return Bot.sendMessage("❌ Run /setup first");
+}
+
+if (user.telegramid.toString() !== admin_id.toString()) {
   return Bot.sendMessage("❌ Not allowed");
 }
 

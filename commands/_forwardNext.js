@@ -46,7 +46,8 @@ for (let i = 0; i < premium.length; i++) {
     from_chat_id: storage_channel,
     message_id: message_id,
 
-    on_result: "/afterCopy " + premium[i]
+    on_result: "/afterCopy " + premium[i],
+    on_error: "/forwardError " + premium[i]
   });
 
 }

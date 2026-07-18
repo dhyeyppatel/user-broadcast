@@ -16,20 +16,28 @@
   group: 
 CMD*/
 
-if (user.telegramid != 1123135015) {
+var admin_id = Bot.getProperty("admin_id");
+
+if (!admin_id) {
+  return Bot.sendMessage("❌ Run /setup first");
+}
+
+if (user.telegramid.toString() !== admin_id.toString()) {
   return Bot.sendMessage("❌ Not allowed");
 }
 
-let storage_channel = -1003445406523;
+let storage_channel = Bot.getProperty("storage_channel") || -1003445406523;
 
-let start_message_id = 100;
+let start_message_id = Bot.getProperty("current_message_id") || 1;
 
-let interval = 3;
+let interval = Bot.getProperty("interval") || 10;
 
 // AUTO DELETE AFTER (seconds)
-let auto_delete_time = 6;
+let auto_delete_time = Bot.getProperty("auto_delete_time") || 600;
 
 Bot.setProperty("forward_loop", true, "boolean");
+// Reset missing count
+Bot.setProperty("missing_count", 0, "integer");
 
 Bot.setProperty(
   "current_message_id",

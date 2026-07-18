@@ -34,7 +34,7 @@ let id = params;
 
 if (!id) {
   return Api.sendMessage({
-    text: "Usage:\n/addpremium user_id"
+    text: "Usage:\n/add user_id"
   });
 }
 
